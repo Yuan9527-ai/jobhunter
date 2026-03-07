@@ -1,306 +1,94 @@
 # AI Job Hunter Agent
 
-An AI-powered system that automatically monitors freelance platforms (Upwork, Fiverr, LinkedIn), detects relevant job postings, generates personalized proposals, and assists users through a Chrome extension.
+An AI-powered system that automatically monitors freelance platforms, detects relevant jobs, generates personalized proposals, and assists users through a Chrome extension.
 
-## 🎯 Features
-
-### Core Features
-- **Automated Job Monitoring**: Scrapes Upwork, Fiverr, and LinkedIn every 5-10 minutes
-- **Smart Filtering**: 
-  - Best Match prioritization
-  - Proposal count limits
-  - Connect budget management
-  - Client rating filters
-  - Budget range filters
-- **AI Proposal Generation**: Creates personalized proposals using GPT-4
-- **GitHub Integration**: Automatically matches relevant repositories to jobs
-- **Portfolio Matching**: Selects relevant portfolio projects
-- **Multi-Channel Notifications**: Email, Telegram, Discord
-- **Chrome Extension**: One-click proposal insertion on job pages
-- **Analytics Dashboard**: Track applications, response rates, and success metrics
-
-### Smart Job Scoring
-Jobs are scored 0-100 based on:
-- Skill match (30%)
-- Best Match status (25%)
-- Client quality (20%)
-- Proposal count (15%)
-- Budget alignment (10%)
-
-## 🏗️ Architecture
+## 📁 Project Structure
 
 ```
-Job Scrapers → Filter Pipeline → AI Matching → Proposal Generator → Notifications
-                                                                    ↓
-                                                            Chrome Extension
-                                                                    ↓
-                                                            User Reviews & Submits
+jobAi/
+├── jobhunterAdmin/          # Project documentation and admin files
+│   ├── .github/             # GitHub issue templates
+│   ├── issues/              # Detailed issue descriptions by phase
+│   ├── scripts/             # Automation scripts
+│   ├── PROJECT_PLAN.md      # Complete project plan
+│   ├── TECHNICAL_SPEC.md    # Technical specifications
+│   ├── DEVELOPMENT_SPEC.md  # Development guidelines
+│   ├── ISSUES_SUMMARY.md    # Summary of all issues
+│   ├── GITHUB_SETUP.md      # GitHub setup guide
+│   ├── TEAM_ONBOARDING.md   # Team onboarding guide
+│   └── README.md            # Detailed project README
+├── backend/                 # FastAPI backend (to be created)
+├── frontend/                # Next.js frontend (to be created)
+└── extension/               # Chrome extension (to be created)
 ```
-
-## 🛠️ Tech Stack
-
-### Backend
-- **Framework**: Python FastAPI
-- **Database**: PostgreSQL with pgvector
-- **Cache**: Redis
-- **Task Queue**: Celery
-- **Scraping**: Playwright + BeautifulSoup
-- **AI**: OpenAI API (GPT-4, Embeddings)
-- **Vector DB**: Pinecone
-
-### Frontend
-- **Framework**: Next.js 14 (App Router)
-- **UI**: shadcn/ui + Tailwind CSS
-- **State**: Zustand
-- **API Client**: TanStack Query
-
-### Extension
-- **Framework**: Plasmo (React-based)
-- **Build**: Vite
-
-### DevOps
-- **Containers**: Docker + Docker Compose
-- **CI/CD**: GitHub Actions
-- **Hosting**: AWS / DigitalOcean / Render
-
-## 📋 Prerequisites
-
-- Python 3.11+
-- Node.js 18+
-- PostgreSQL 15+
-- Redis 7+
-- Docker & Docker Compose (optional)
-- OpenAI API key
-- GitHub personal access token
 
 ## 🚀 Quick Start
 
-### 1. Clone Repository
+### For Project Managers
+1. Review `jobhunterAdmin/PROJECT_PLAN.md` for complete project overview
+2. Check GitHub issues: https://github.com/adenueltech/jobhunter/issues
+3. Assign issues to team members
+4. Track progress using GitHub Projects
 
-```bash
-git clone https://github.com/yourusername/ai-job-hunter.git
-cd ai-job-hunter
-```
+### For Developers
+1. Read `jobhunterAdmin/TEAM_ONBOARDING.md` for onboarding guide
+2. Read `jobhunterAdmin/DEVELOPMENT_SPEC.md` for development guidelines
+3. Pick an issue from GitHub
+4. Follow the setup instructions in `jobhunterAdmin/README.md`
 
-### 2. Backend Setup
+## 📋 Phase 1 Status
 
-```bash
-cd backend
+✅ **Planning Complete**
+- All documentation created
+- 33 Phase 1 issues created on GitHub
+- Labels and milestones configured
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+🚧 **In Progress**
+- Team members claiming issues
+- Development starting
 
-# Install dependencies
-pip install -r requirements.txt
+## 🎯 Current Milestone
 
-# Copy environment file
-cp .env.example .env
-
-# Edit .env with your credentials
-# - DATABASE_URL
-# - REDIS_URL
-# - OPENAI_API_KEY
-# - GITHUB_TOKEN
-
-# Run migrations
-alembic upgrade head
-
-# Start backend
-uvicorn app.main:app --reload
-```
-
-### 3. Frontend Setup
-
-```bash
-cd frontend
-
-# Install dependencies
-npm install
-
-# Copy environment file
-cp .env.example .env.local
-
-# Edit .env.local with API URL
-
-# Start frontend
-npm run dev
-```
-
-### 4. Extension Setup
-
-```bash
-cd extension
-
-# Install dependencies
-npm install
-
-# Build extension
-npm run build
-
-# Load in Chrome:
-# 1. Go to chrome://extensions/
-# 2. Enable "Developer mode"
-# 3. Click "Load unpacked"
-# 4. Select the extension/build folder
-```
-
-### 5. Using Docker (Recommended)
-
-```bash
-# Start all services
-docker-compose up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop services
-docker-compose down
-```
-
-Services will be available at:
-- Backend API: http://localhost:8000
-- Frontend: http://localhost:3000
-- PostgreSQL: localhost:5432
-- Redis: localhost:6379
+**MVP - Week 1: Foundation**
+- Project setup
+- Database schema
+- Authentication system
+- Basic backend structure
 
 ## 📚 Documentation
 
-- [Project Plan](PROJECT_PLAN.md) - Complete project overview
-- [Technical Specification](TECHNICAL_SPEC.md) - Detailed technical docs
-- [Development Spec](DEVELOPMENT_SPEC.md) - Team workflow and guidelines
-- [Issues Summary](ISSUES_SUMMARY.md) - All GitHub issues organized
+All project documentation is in the `jobhunterAdmin/` folder:
 
-## 🎯 Development Roadmap
+- **PROJECT_PLAN.md** - Complete 12-week project plan
+- **TECHNICAL_SPEC.md** - Detailed technical specifications
+- **DEVELOPMENT_SPEC.md** - Team workflow and guidelines
+- **ISSUES_SUMMARY.md** - All 64 issues organized by phase
+- **GITHUB_SETUP.md** - How to set up GitHub repository
+- **TEAM_ONBOARDING.md** - Onboarding guide for new team members
+- **README.md** - Detailed project README with setup instructions
 
-### Phase 1: MVP (Weeks 1-4) ✅
-- [x] Backend foundation
-- [x] Upwork scraper
-- [x] AI proposal generation
-- [x] Email notifications
-- [x] Basic dashboard
+## 🔗 Links
 
-### Phase 2: Advanced Features (Weeks 5-7) 🚧
-- [ ] Smart filters (Best Match, proposal count, etc.)
-- [ ] Enhanced AI matching
-- [ ] Advanced analytics
-- [ ] Filter customization UI
+- **Repository**: https://github.com/adenueltech/jobhunter
+- **Issues**: https://github.com/adenueltech/jobhunter/issues
+- **Milestones**: https://github.com/adenueltech/jobhunter/milestones
 
-### Phase 3: Extension & Multi-Platform (Weeks 8-12) 📅
-- [ ] Chrome extension
-- [ ] Fiverr scraper
-- [ ] LinkedIn scraper
-- [ ] Production deployment
-- [ ] Chrome Web Store submission
+## 👥 Team
 
-## 🤝 Contributing
+- Backend Team (2 developers)
+- Frontend Team (1 developer)
+- Extension Team (1 developer)
+- AI/ML Team (1 developer)
+- DevOps Team (1 developer)
+- QA Team (1 developer)
 
-We welcome contributions! Here's how to get started:
+## 📞 Getting Help
 
-1. **Pick an Issue**: Browse [GitHub Issues](../../issues) and find one labeled `good-first-issue`
-2. **Claim It**: Comment on the issue to let others know you're working on it
-3. **Create Branch**: `git checkout -b feature/issue-123-description`
-4. **Make Changes**: Follow our coding standards
-5. **Write Tests**: Ensure tests pass
-6. **Submit PR**: Reference the issue number in your PR
-
-### Branch Naming Convention
-```
-feature/issue-123-job-scraper
-bugfix/issue-456-filter-error
-enhancement/issue-789-ui-improvement
-```
-
-### Commit Message Format
-```
-[#123] Add Upwork job scraper
-
-- Implement base scraper class
-- Add Playwright stealth mode
-- Extract job details from DOM
-```
-
-## 🧪 Testing
-
-### Backend Tests
-```bash
-cd backend
-pytest
-pytest --cov=app tests/  # With coverage
-```
-
-### Frontend Tests
-```bash
-cd frontend
-npm test
-npm run test:coverage
-```
-
-### Extension Tests
-```bash
-cd extension
-npm test
-```
-
-## 📊 Project Structure
-
-```
-ai-job-hunter/
-├── backend/              # FastAPI backend
-│   ├── app/
-│   │   ├── api/         # API endpoints
-│   │   ├── models/      # Database models
-│   │   ├── services/    # Business logic
-│   │   ├── tasks/       # Celery tasks
-│   │   └── utils/       # Utilities
-│   └── tests/
-├── frontend/            # Next.js dashboard
-│   ├── app/            # App router pages
-│   ├── components/     # React components
-│   └── lib/            # Utilities
-├── extension/          # Chrome extension
-│   ├── background/     # Service worker
-│   ├── content/        # Content scripts
-│   ├── popup/          # Popup UI
-│   └── components/     # React components
-├── issues/             # GitHub issues (markdown)
-├── scripts/            # Utility scripts
-└── docs/               # Documentation
-```
-
-## 🔐 Security
-
-- Never commit `.env` files
-- Use environment variables for secrets
-- Rotate API keys regularly
-- Follow platform ToS
-- Don't auto-submit applications (manual review required)
-
-## 📝 License
-
-MIT License - see [LICENSE](LICENSE) file for details
-
-## 🙏 Acknowledgments
-
-- OpenAI for GPT-4 and embeddings API
-- Playwright for web scraping capabilities
-- All contributors and team members
-
-## 📞 Support
-
-- **Issues**: [GitHub Issues](../../issues)
-- **Discussions**: [GitHub Discussions](../../discussions)
-- **Email**: support@example.com
-
-## 🎉 Team
-
-- **Backend Team**: 2 developers
-- **Frontend Team**: 1 developer
-- **Extension Team**: 1 developer
-- **AI/ML Team**: 1 developer
-- **DevOps Team**: 1 developer
-- **QA Team**: 1 developer
+- Check documentation in `jobhunterAdmin/`
+- Ask in team chat
+- Comment on GitHub issues
+- Contact project lead
 
 ---
 
-**Note**: This system is designed for personal use to assist freelancers. Always review proposals before submitting and respect platform terms of service.
+**Ready to start?** Head to `jobhunterAdmin/TEAM_ONBOARDING.md` to get started!
