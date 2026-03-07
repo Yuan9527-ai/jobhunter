@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Project Setup and Repository Structure",
+    "labels": ["phase-1-mvp", "devops", "priority-high", "good-first-issue"],
+    "milestone": "MVP - Week 1: Foundation",
+    "body": "## Description\nSet up the monorepo structure with backend, frontend, and extension folders.\n\n## Tasks\n- [ ] Create monorepo structure\n- [ ] Initialize backend (Python/FastAPI)\n- [ ] Initialize frontend (Next.js)\n- [ ] Initialize extension (Plasmo)\n- [ ] Create .gitignore files\n- [ ] Create README.md with setup instructions\n- [ ] Set up .env.example files\n\n## Acceptance Criteria\n- [ ] Repository structure matches DEVELOPMENT_SPEC.md\n- [ ] All folders initialized\n- [ ] README has clear setup instructions"
+  },
+  {
+    "title": "Database Schema Implementation",
+    "labels": ["phase-1-mvp", "backend", "priority-high"],
+    "milestone": "MVP - Week 1: Foundation",
+    "body": "## Description\nImplement PostgreSQL database schema with all required tables.\n\n## Tasks\n- [ ] Set up PostgreSQL with Docker\n- [ ] Install pgvector extension\n- [ ] Create all tables (users, jobs, applications, etc.)\n- [ ] Add indexes for performance\n- [ ] Set up Alembic for migrations\n\n## Acceptance Criteria\n- [ ] All tables created with proper relationships\n- [ ] Foreign keys and constraints in place\n- [ ] Migration scripts work correctly"
+  }
+]
